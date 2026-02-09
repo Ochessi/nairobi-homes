@@ -136,14 +136,19 @@
     @apply bg-background text-foreground;
   }
   
-  /* Typography - Playfair Display for headings, Inter for body */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair), Georgia, serif;
-  }
-  
-  body, p, span, div, button, input, label, a {
+  /* Typography - Inter for all text (clean sans-serif) */
+  h1, h2, h3, h4, h5, h6, body, p, span, div, button, input, label, a {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
+}
+
+/* Navbar dropdown styles */
+.nav-dropdown {
+  @apply absolute top-full left-1/2 -translate-x-1/2 mt-2 p-4 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible translate-y-2 transition-all duration-200;
+}
+
+.nav-item:hover .nav-dropdown {
+  @apply opacity-100 visible translate-y-0;
 }
 
 /* Accessibility - Large touch targets and high contrast */

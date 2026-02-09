@@ -112,7 +112,7 @@ export function SearchBar({
                 <Button
                     onClick={() => handleSearch()}
                     className={cn(
-                        "bg-[--color-forest] hover:bg-[--color-forest-light] text-white rounded-lg touch-target",
+                        "bg-[#1B4332] hover:bg-[#2D6A4F] text-white rounded-lg touch-target",
                         isLarge ? "px-6 h-12" : "px-4 h-10"
                     )}
                 >
