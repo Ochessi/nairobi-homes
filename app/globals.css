@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-playfair);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  
+  /* Custom colors for Nairobi Homes */
+  --color-forest: #1B4332;
+  --color-forest-light: #2D6A4F;
+  --color-forest-dark: #143325;
+  --color-sand: #E9DCC9;
+  --color-sand-light: #F5F0E8;
+  --color-cream: #FAF8F5;
+  --color-water-reliable: #0D9488;
+  --color-water-variable: #F59E0B;
+  --color-water-essential: #10B981;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Nairobi Homes - Deep Forest Green & Soft Sand Theme */
+  --background: #FAF8F5;
+  --foreground: #1B4332;
+  --card: #FFFFFF;
+  --card-foreground: #1B4332;
+  --popover: #FFFFFF;
+  --popover-foreground: #1B4332;
+  --primary: #1B4332;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E9DCC9;
+  --secondary-foreground: #1B4332;
+  --muted: #F5F0E8;
+  --muted-foreground: #5C6D63;
+  --accent: #2D6A4F;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --border: #E9DCC9;
+  --input: #E9DCC9;
+  --ring: #2D6A4F;
+  --chart-1: #1B4332;
+  --chart-2: #2D6A4F;
+  --chart-3: #40916C;
+  --chart-4: #52B788;
+  --chart-5: #74C69D;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1B4332;
+  --sidebar-primary: #1B4332;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F0E8;
+  --sidebar-accent-foreground: #1B4332;
+  --sidebar-border: #E9DCC9;
+  --sidebar-ring: #2D6A4F;
+}
+
+.dark {
+  --background: #0F1F17;
+  --foreground: #F5F0E8;
+  --card: #162B20;
+  --card-foreground: #F5F0E8;
+  --popover: #162B20;
+  --popover-foreground: #F5F0E8;
+  --primary: #74C69D;
+  --primary-foreground: #0F1F17;
+  --secondary: #2D3D34;
+  --secondary-foreground: #F5F0E8;
+  --muted: #2D3D34;
+  --muted-foreground: #A3B8AC;
+  --accent: #40916C;
+  --accent-foreground: #F5F0E8;
+  --destructive: #EF4444;
+  --border: #2D3D34;
+  --input: #2D3D34;
+  --ring: #40916C;
+  --chart-1: #74C69D;
+  --chart-2: #52B788;
+  --chart-3: #40916C;
+  --chart-4: #2D6A4F;
+  --chart-5: #1B4332;
+  --sidebar: #162B20;
+  --sidebar-foreground: #F5F0E8;
+  --sidebar-primary: #74C69D;
+  --sidebar-primary-foreground: #0F1F17;
+  --sidebar-accent: #2D3D34;
+  --sidebar-accent-foreground: #F5F0E8;
+  --sidebar-border: #2D3D34;
+  --sidebar-ring: #40916C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Typography - Playfair Display for headings, Inter for body */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  
+  body, p, span, div, button, input, label, a {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* Accessibility - Large touch targets and high contrast */
+@layer components {
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Water reliability badges */
+  .water-badge-essential {
+    @apply bg-emerald-500 text-white;
+  }
+  
+  .water-badge-reliable {
+    @apply bg-teal-500 text-white;
+  }
+  
+  .water-badge-variable {
+    @apply bg-amber-500 text-white;
+  }
+  
+  /* Low data mode - reduces image quality */
+  .low-data-mode img {
+    image-rendering: pixelated;
+    filter: contrast(1.1);
+  }
+  
+  /* Glassmorphism effects */
+  .glass {
+    @apply backdrop-blur-md bg-white/80 dark:bg-black/40;
+  }
+  
+  /* Forest green gradient background */
+  .forest-gradient {
+    background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+  }
+  
+  /* Sand gradient */
+  .sand-gradient {
+    background: linear-gradient(180deg, #FAF8F5 0%, #E9DCC9 100%);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[--color-forest];
+}
